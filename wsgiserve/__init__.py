@@ -5,8 +5,10 @@ import hupper
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("config")
-    parser.add_argument("--reload", action="store_true")
+    parser.add_argument("config",
+                        help="A path to the configuration file")
+    parser.add_argument("--reload", action="store_true",
+                        help="Use auto-restart file monitor")
     args = parser.parse_args()
     if args.reload:
         reloader = hupper.start_reloader("wsgiserve.main")
