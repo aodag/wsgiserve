@@ -14,6 +14,7 @@ def main():
         reloader = hupper.start_reloader("wsgiserve.main")
         reloader.watch_files([args.config])
 
+    plaster.setup_logging(args.config)
     loader = plaster.get_loader(args.config, protocols=["wsgi"])
     app = loader.get_wsgi_app()
     server = loader.get_wsgi_server()
