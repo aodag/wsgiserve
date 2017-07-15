@@ -1,6 +1,9 @@
+import logging
 import argparse
 import plaster
 import hupper
+
+logger = logging.getLogger(__name__)
 
 
 def main():
