@@ -22,13 +22,13 @@ class Command(object):
     def get_wsgi_loader(self):
         loader = plaster.get_loader(self.config, protocols=["wsgi"])
         return loader
-    
+
     def run(self):
         self.setup_logging()
         self.setup_reloader()
         loader = self.get_wsgi_loader()
         self.run_wsgi(loader)
-        
+
     def run_wsgi(self, loader):
         app = loader.get_wsgi_app()
         server = loader.get_wsgi_server()
