@@ -2,6 +2,9 @@
 wsgiserve
 ====================
 
+.. image:: https://travis-ci.org/aodag/wsgiserve.svg?branch=master
+    :target: https://travis-ci.org/aodag/wsgiserve
+
 ``wsgiserve`` is a command to run wsgi application defined paste deploy configuration.
 
 ::
