@@ -1,6 +1,16 @@
 from setuptools import setup, find_packages
 
+
+def read(filename):
+    try:
+        with open(filename) as f:
+            return f.read()
+    except Exception:
+        return ""
+
+
 __author__ = 'Atsushi Odagiri'
+__author_email__ = 'aodagx@gmail.com'
 __version__ = '0.1'
 
 requires = [
@@ -26,7 +36,11 @@ setup(
     name="wsgiserve",
     version=__version__,
     author=__author__,
-    packages=find_packages(),
+    author_email=__author_email__,
+    url="https://github.com/aodag/wsgiserve",
+    description="a command to run wsgi application defined paste deploy configuration.",
+    long_description=read("README.rst"),
+    packages=find_packages(exclude=["tests", "example"]),
     install_requires=requires,
     tests_require=tests_require,
     extras_require={
