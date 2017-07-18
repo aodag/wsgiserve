@@ -11,4 +11,4 @@ script:
     - "py.test tests --cov=wsgiserve --cov-report=term-missing"
     - "flake8 wsgiserve"
     - "python setup.py check"
-    - "if [ $PACKAGING == 1 ] then; python setup.py bdist_wheel; fi"
+    - "if [ $PACKAGING == 1 ] ; then python setup.py bdist_wheel fi"
