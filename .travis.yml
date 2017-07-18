@@ -4,4 +4,8 @@ python:
     - "3.5"
     - "3.6"
 install: "pip install -e .[testing]"
-script: "py.test tests"
+script:
+    - "py.test tests --cov=wsgiref --cov-report=term-missing"
+    - "flake8 wsgiserve"
+    - "setup.py check"
+    - "setup.py bdist_wheel"
