@@ -1,11 +1,14 @@
 language: python
-python:
-    - "2.7"
-    - "3.5"
-    - "3.6"
+matrix:
+    include:
+        - python: "2.7"
+        - python: "3.5"
+        - python: "3.6"
+        - python: "3.6"
+          env: PACKAGING=1
 install: "pip install -e .[testing]"
 script:
     - "py.test tests --cov=wsgiref --cov-report=term-missing"
     - "flake8 wsgiserve"
     - "python setup.py check"
-    - "python setup.py bdist_wheel"
+    - "if [ $PACKAGING == "1" ] then; python setup.py bdist_wheel; fi"
