@@ -38,12 +38,13 @@ class Command(object):
         self.setup_logging()
         self.setup_reloader()
         loader = self.get_wsgi_loader()
-        self.run_wsgi(loader)
+        defaults = self.get_defaults()
+        self.run_wsgi(loader, defaults)
 
-    def run_wsgi(self, loader):
+    def run_wsgi(self, loader, defaults):
         """serve wsgi app with loader"""
-        app = loader.get_wsgi_app()
-        server = loader.get_wsgi_server()
+        app = loader.get_wsgi_app(defaults=defaults)
+        server = loader.get_wsgi_server(defaults=defaults)
         server(app)
 
 
