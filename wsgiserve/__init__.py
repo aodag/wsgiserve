@@ -9,9 +9,14 @@ logger = logging.getLogger(__name__)
 class Command(object):
     """command of wsgiserve"""
 
-    def __init__(self, config, reload):
+    def __init__(self, config, reload, config_vars=[]):
         self.config = config
         self.reload = reload
+        self.config_vars = config_vars
+
+    def get_defaults(self):
+        """get default values from config_vars"""
+        return dict(c.split("=", 1) for c in self.config_vars if "=" in c)
 
     def setup_logging(self):
         """call setup_logging for self's config"""
@@ -48,6 +53,8 @@ def setup_arguments(parser):
                         help="A path to the configuration file")
     parser.add_argument("--reload", action="store_true",
                         help="Use auto-restart file monitor")
+    parser.add_argument("config_vars", nargs="*",
+                        help="Variables required by the config file.")
 
 
 def main():
@@ -55,5 +62,5 @@ def main():
     parser = argparse.ArgumentParser()
     setup_arguments(parser)
     args = parser.parse_args()
-    command = Command(args.config, args.reload)
+    command = Command(args.config, args.reload, args.config_vars)
     command.run()
