@@ -21,5 +21,6 @@ deploy:
     file_glob: true
     file: "dist/wsgiserve-*.whl"
     skip_cleanup: true
+    overwrite: true
     on:
         tags: true
