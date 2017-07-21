@@ -14,7 +14,6 @@ script:
 before_deploy:
     - "python setup.py bdist_wheel"
 deploy:
-    python: "3.6"
     provider: releases
     api_key:
         secure: "vITkLe3GREt31Fdj9oYz8LJbGNZreuZ6QgD/+x4+8wHFs7NjJUMKNuy104kxTTwfX/AvMEGDFtTBnAoOpRc8ADB0idXoVV9Bw8NZNvF1xTHOv1WjrLH/qmnl3etCFu5dxVTk8VpFxR/Y4ak/evHToLvLIzibGPGGo/qEixpNM1tuZ6aHRwC0SVqq4ysrJ/JmqVBa2DuzMbI1p8dars5bSt8Uo44IfjK8ZfRxSZH/tvdcg3IzLoHrOlRZ4vu9GYafekIefGzeUSQ/lLCQHIMNl5aQbsN3bxBxuAd8dM84lSMKo9uGHc2rZKFJjFKJ4VgOOZyeSj4OuGzuw5JP3bODqkDhHrO7IhIW6OX7vLs9fuDRvxjXBiR0OskAkioc8uiowz768xz8noCey9UYXdiUeVyKxM/kmrX2eZEy6x5djPACFN7KbecDBgFYO0z1H8QP6Kp5wKVNFHsvBkbK8xpZ3PAxSsiyhB1AaB27yLht6HgDg/EEMRsEE2QmtUsvSSq4kiVwwaEEb+IM0sD5ZbbVRBpf6mLYzV+Jmg+RcVzyVMzQoCfdlf8LIZAL0Vk+4DL74pRuu0ZPOOch8oPsuJkMF31bUqhlvggNKP2EKhDrFnsuidFgCDLT9SsEfFi0j5DvmYNZsM7MYViBKGyVdW/XlTtfvoGr+o1Ehle8jNTkWfw="
@@ -24,3 +23,4 @@ deploy:
     overwrite: true
     on:
         tags: true
+        python: "3.6"
