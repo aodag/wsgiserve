@@ -11,7 +11,6 @@ def read(filename):
 
 __author__ = 'Atsushi Odagiri'
 __author_email__ = 'aodagx@gmail.com'
-__version__ = '0.1'
 
 requires = [
     "plaster",
@@ -34,7 +33,6 @@ points = {
 
 setup(
     name="wsgiserve",
-    version=__version__,
     author=__author__,
     author_email=__author_email__,
     license="MIT",
@@ -47,5 +45,9 @@ setup(
     extras_require={
         "testing": tests_require,
     },
+    setup_requires=[
+        "setuptools-scm",
+    ],
+    use_scm_version=True,
     entry_points=points,
 )
