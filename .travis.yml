@@ -12,7 +12,7 @@ script:
     - "flake8 wsgiserve"
     - "python setup.py check"
 before_deploy:
-    - "python setup.py release"
+    - "python setup.py bdist_wheel"
 deploy:
     python: "3.6"
     provider: releases
