@@ -5,6 +5,7 @@ matrix:
         - python: "3.5"
         - python: "3.6"
 install:
+    - "python -m pip install -U pip setuptools wheel"
     - "pip install setuptools-scm"
     - "pip install -e .[testing]"
 script:
